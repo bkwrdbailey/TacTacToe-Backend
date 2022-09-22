@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN dotnet clean ./TicTacToe-Backend.sln
+RUN dotnet clean ./TacTacToe-Backend.sln
 RUN dotnet publish ./TicTacToeCRUD --configuration Release -o ./publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS run
@@ -14,4 +14,4 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
-CMD ["dotnet", "TicTacToeCRUD.dll"]
+CMD ["dotnet", "TacTacToeCRUD.dll"]
